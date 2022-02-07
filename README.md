@@ -12,4 +12,4 @@ You can get the:
 ![Screenshot 3](https://raw.githubusercontent.com/barisceylann/minecraft-server-status-checker/main/Readme/SS-3.jpg)
 
 # Live
-[live](https://barisceylann.github.io/minecraft-server-status-checker/)
+[Live](https://barisceylann.github.io/minecraft-server-status-checker/)
