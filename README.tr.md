@@ -1,11 +1,12 @@
 # Minecraft Server Status Checker
-It allows you to check the Minecraft server status through the website.
+Web sitesi üzerinden Minecraft'taki sunucu durumunu kontrol etmenizi sağlar.
 
-You can get the:
-- number of online players
-- maximum number of players
-- server picture
+Sunucunun
+- Online oyuncu sayısı,
+- Maksimum oyuncu sayısı
+- Sunucu resmi
+bilgilerini elde edebilirsiniz.
 
-# Screenshots
+# Ekran Görüntüleri
 ![Output after finishing](https://github.com/barisceylann/minecraft-server-status-checker/blob/master/Readme/SS-1.png?raw=true)
 ![Output after finishing](https://github.com/barisceylann/minecraft-server-status-checker/blob/master/Readme/SS-2.png?raw=true)
