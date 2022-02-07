@@ -54,7 +54,6 @@
             let server_url_full = `https://api.minetools.eu/ping/${server_url}/${server_port}`;
 
             $.getJSON(server_url_full, function(api) {
-
                 if (api.error) {
                     $('#statue').html('Server close or not found.');
                     return false;
