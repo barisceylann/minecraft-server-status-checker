@@ -7,5 +7,5 @@ You can get the:
 - server picture
 
 # Screenshots
-![Output after finishing](https://github.com/barisceylann/minecraft-server-status-checker/blob/master/Readme/SS-1.png?raw=true)
-![Output after finishing](https://github.com/barisceylann/minecraft-server-status-checker/blob/master/Readme/SS-2.png?raw=true)
+![Screenshot 1](https://raw.githubusercontent.com/barisceylann/minecraft-server-status-checker/main/Readme/SS-1.jpg)
+![Screenshot 2](https://raw.githubusercontent.com/barisceylann/minecraft-server-status-checker/main/Readme/SS-2.jpg)
