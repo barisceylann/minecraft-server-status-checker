@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,72 +9,71 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 <body>
-
     <div class="ms-3">
-      <p class="h4 mt-3 mb-3">Server</p>
-      <form name="server">
-        <div class="row g-2">
-          <!-- URL -->
-          <div class="mb-3 col-md-6 col-sm-12">
-            <label for="server_url" class="form-label">URL</label>
-            <input type="text" class="form-control" id="server_url" placeholder="mc.hypixel.net" value="mc.hypixel.net">
-          </div>
-    
-          <!-- Port -->
-          <div class="mb-3 col-md-2 col-sm-12">
-            <label for="server_port" class="form-label">Port</label>
-            <input type="number" class="form-control" id="server_port" placeholder="25565" value="25565">
-          </div>
-        </div>
-        
-        <div class="mb-3">
-          <button type="button" onclick="get_server_status();" class="btn btn-success">Check</button>
-        </div>
-      </form>
+        <p class="h4 mt-3 mb-3">Server</p>
+        <form name="server">
+            <div class="row g-2">
+
+                <!-- URL -->
+                <div class="mb-3 col-md-6 col-sm-12">
+                    <label for="server_url" class="form-label">URL</label>
+                    <input type="text" class="form-control" id="server_url" placeholder="mc.hypixel.net" value="mc.hypixel.net">
+                </div>
+
+                <!-- Port -->
+                <div class="mb-3 col-md-2 col-sm-12">
+                    <label for="server_port" class="form-label">Port</label>
+                    <input type="number" class="form-control" id="server_port" placeholder="25565" value="25565">
+                </div>
+            </div>
+            <div class="mb-3">
+
+                <!-- Check -->
+                <button type="button" onclick="get_server_status();" class="btn btn-success">Check</button>
+            </div>
+        </form>
     </div>
 
     <br><br>
     
     <p class="h4 mt-3 mb-3 ms-3">Server Status</p>
     <div class="ms-3">
-      <p id="server_url_title" class="fw-bold mb-1">Loading...</p>
-      <img src="pack.png" id="favicon" alt="Server image" width="64" class="mb-1">
-      <div id="statue">Loading...</div>
+        <p id="server_url_title" class="fw-bold mb-1">Loading...</p>
+        <img src="pack.png" id="favicon" alt="Server image" width="64" class="mb-1">
+        <div id="statue">Loading...</div>
     </div>
 
     <script>
-      get_server_status();
-      function get_server_status() {
-        $('#statue').html("");
-        $('#favicon').attr('src', "pack.png");
+        get_server_status();
+        function get_server_status() {
+            $('#statue').html("");
+            $('#favicon').attr('src', "pack.png");
 
-        let server_url = document.server.server_url.value;
-        let server_port = document.server.server_port.value;
-        let server_url_full = `https://api.minetools.eu/ping/${server_url}/${server_port}`;
+            let server_url = document.server.server_url.value;
+            let server_port = document.server.server_port.value;
+            let server_url_full = `https://api.minetools.eu/ping/${server_url}/${server_port}`;
 
-        $.getJSON(server_url_full, function(api) {
+            $.getJSON(server_url_full, function(api) {
 
-            if (api.error) {
-                $('#statue').html('Server close or not found.');
-                return false;
-            }
+                if (api.error) {
+                    $('#statue').html('Server close or not found.');
+                    return false;
+                }
 
-            let online_player = '';
-            if (api.players.sample.length > 0) {
-              online_player = '<br>Online Player: ' + api.players.sample[0].name;
-            }
+                let online_player = '';
+                if (api.players.sample.length > 0) {
+                    online_player = '<br>Online Player: ' + api.players.sample[0].name;
+                }
 
-            //
-            $('#statue').html(api.description.replace(/§(.+?)/gi, '') + `<br><span class="fw-bold">Online Player:</span> ${api.players.online}/${api.players.max}`);
-            if (api.favicon == null) {
-              api.favicon = "pack.png";
-            }
-            $('#favicon').attr('src', api.favicon);
-        });
+                $('#statue').html(api.description.replace(/§(.+?)/gi, '') + `<br><span class="fw-bold">Online Player:</span> ${api.players.online}/${api.players.max}`);
+                if (api.favicon == null) {
+                    api.favicon = "pack.png";
+                }
+                $('#favicon').attr('src', api.favicon);
+            });
 
-        $("#server_url_title").html(server_url);
-      }
+            $("#server_url_title").html(server_url);
+        }
     </script>
-
 </body>
 </html>
